@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Baseball Batting Order Creator</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="container-fluid py-5" id="app-container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <div class="card shadow-lg border-0 rounded-4 mb-5">
+                        <div class="card-header text-center py-4 bg-primary text-white rounded-top-4">
+                            <h1 class="card-title mb-0 display-5 fw-bold">Baseball Batting Order</h1>
+                            <p class="lead mb-0 mt-2">Create and customize your team's lineup!</p>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="mb-4 text-center">
+                                <label for="logoUpload" class="form-label d-block mb-3 fw-bold">Team Logo:</label>
+                                <input type="file" class="form-control d-none" id="logoUpload" accept="image/*">
+                                <button class="btn btn-outline-secondary btn-lg" id="uploadLogoButton">
+                                    <i class="fas fa-upload me-2"></i> Upload Logo
+                                </button>
+                                <div class="mt-3" id="logoPreviewContainer" style="display: none;">
+                                    <img id="logoPreview" src="#" alt="Team Logo Preview"
+                                        class="img-fluid rounded-circle shadow-sm"
+                                        style="max-height: 150px; max-width: 150px; object-fit: cover;">
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <label for="primaryColorPicker" class="form-label fw-bold">Primary Color:</label>
+                                    <input type="color" class="form-control form-control-color w-100"
+                                        id="primaryColorPicker" value="#007bff" title="Choose your primary color">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="textColorPicker" class="form-label fw-bold">Text Color:</label>
+                                    <input type="color" class="form-control form-control-color w-100"
+                                        id="textColorPicker" value="#333333" title="Choose your text color">
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-4 shadow-sm rounded-pill p-1">
+                                <input type="text" class="form-control border-0 rounded-pill ps-4 py-3"
+                                    id="playerNameInput" placeholder="Enter player name..." aria-label="Player name">
+                                <button class="btn btn-success rounded-pill pe-4" type="button" id="addPlayerButton">
+                                    <i class="fas fa-plus-circle me-2"></i> Add Player
+                                </button>
+                            </div>
+
+                            <div class="batting-order-container">
+                                <ul class="list-group list-group-flush" id="battingOrderList">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center py-3 bg-light rounded-bottom-4">
+                            <p class="text-muted mb-0">&copy; 2025 Baseball Batting Order Creator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+
+</html>
