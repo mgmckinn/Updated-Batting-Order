@@ -79,6 +79,13 @@ body {
     filter: brightness(90%);
 }
 
+/* Centering the batting order list */
+.batting-order-container {
+    max-width: 600px; /* Adjust this value as needed for desired width */
+    margin: 0 auto; /* This centers the block element */
+    padding: 0 15px; /* Add some horizontal padding for smaller screens */
+}
+
 .list-group-item {
     display: flex;
     justify-content: space-between;
@@ -124,4 +131,88 @@ body {
     padding: 0.5rem 0.75rem;
     font-size: 0.9rem;
     margin-left: 0.5rem;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: white !important; /* Ensure white background for print */
+        color: black !important; /* Ensure black text for print */
+    }
+
+    #app-container {
+        padding: 0 !important; /* Remove padding for print */
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+    }
+
+    .row.justify-content-center {
+        justify-content: flex-start !important; /* Align left for print */
+    }
+
+    .col-lg-8, .col-md-10 {
+        flex: 0 0 100% !important; /* Take full width */
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .card {
+        box-shadow: none !important; /* Remove shadows for print */
+        border: none !important; /* Remove borders for print */
+        border-radius: 0 !important; /* Remove border radius */
+        margin-bottom: 0 !important; /* Remove margin */
+        height: auto !important; /* Allow height to adjust */
+    }
+
+    .card-header {
+        background-color: var(--primary-color) !important; /* Keep primary color for header */
+        -webkit-print-color-adjust: exact; /* Crucial for printing background colors */
+        color: white !important;
+        padding: 1rem !important; /* Adjust padding for print */
+    }
+
+    .card-body {
+        padding: 1rem !important; /* Adjust padding for print */
+    }
+
+    /* Hide elements not needed for printing */
+    .logo-section,
+    .color-pickers-section,
+    .player-input-section,
+    .card-footer,
+    .player-actions, /* Hide edit/delete/drag buttons */
+    .drag-handle,
+    .btn { /* Hide all buttons */
+        display: none !important;
+    }
+
+    /* Ensure player names are editable on screen but not on print */
+    .player-name {
+        contenteditable: false !important;
+        border-bottom: none !important;
+        cursor: default !important;
+        font-size: 1.2em; /* Make text slightly larger for print */
+    }
+
+    .list-group-item {
+        border: 1px solid #ccc !important; /* Add a light border to list items for clarity */
+        margin-bottom: 0.25rem !important; /* Reduce margin between items */
+        padding: 0.75rem 1rem !important; /* Adjust padding */
+        background-color: white !important; /* Ensure white background for list items */
+        color: black !important; /* Ensure black text for list items */
+    }
+
+    /* Ensure the list takes up available space */
+    .batting-order-container {
+        width: 100%; /* Take full width for print */
+        max-width: none; /* Remove max-width for print */
+        margin: 0; /* Remove margin for print */
+    }
+
+    .list-group-flush {
+        width: 100%;
+    }
 }

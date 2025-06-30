@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const uploadLogoButton = document.getElementById("uploadLogoButton");
   const logoPreviewContainer = document.getElementById("logoPreviewContainer");
   const logoPreview = document.getElementById("logoPreview");
-  // New color pickers
   const primaryColorPicker = document.getElementById("primaryColorPicker");
   const textColorPicker = document.getElementById("textColorPicker");
+  const printButton = document.getElementById("printButton"); // Get the print button
   const rootStyles = document.documentElement.style; // Get the root element's style object for CSS variables
 
   // Initialize Sortable.js for drag-and-drop
@@ -30,17 +30,17 @@ document.addEventListener("DOMContentLoaded", () => {
       "justify-content-between"
     );
     listItem.innerHTML = `
-            <span class="player-name flex-grow-1" contenteditable="false">${playerName}</span>
-            <div class="player-actions d-flex align-items-center">
-                <i class="fas fa-grip-vertical me-3 drag-handle" style="cursor: grab;"></i>
-                <button class="btn btn-warning btn-sm me-2 edit-btn" title="Edit Player">
-                    <i class="fas fa-edit"></i>
-                </button>
-                <button class="btn btn-danger btn-sm delete-btn" title="Remove Player">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-            </div>
-        `;
+          <span class="player-name flex-grow-1" contenteditable="false">${playerName}</span>
+          <div class="player-actions d-flex align-items-center">
+              <i class="fas fa-grip-vertical me-3 drag-handle" style="cursor: grab;"></i>
+              <button class="btn btn-warning btn-sm me-2 edit-btn" title="Edit Player">
+                  <i class="fas fa-edit"></i>
+              </button>
+              <button class="btn btn-danger btn-sm delete-btn" title="Remove Player">
+                  <i class="fas fa-trash-alt"></i>
+              </button>
+          </div>
+      `;
 
     // Add event listeners for edit and delete buttons
     listItem.querySelector(".edit-btn").addEventListener("click", (e) => {
@@ -144,6 +144,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   textColorPicker.addEventListener("input", (event) => {
     rootStyles.setProperty("--text-color", event.target.value);
+  });
+
+  // Print functionality
+  printButton.addEventListener("click", () => {
+    window.print(); // Triggers the browser's print dialog
   });
 
   // Initial player examples
